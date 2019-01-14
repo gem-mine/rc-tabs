@@ -1,5 +1,5 @@
 {
-  "name": "rc-tabs",
+  "name": "@sdp.nd/rc-tabs",
   "version": "9.5.8",
   "description": "tabs ui component for react",
   "keywords": [
