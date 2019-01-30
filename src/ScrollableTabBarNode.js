@@ -125,30 +125,18 @@ export default class ScrollableTabBarNode extends React.Component {
     if (this.offset !== target) {
       this.offset = target;
       let navOffset = {};
-      const tabBarPosition = this.props.tabBarPosition;
       const navStyle = this.props.getRef('nav').style;
       const transformSupported = isTransform3dSupported(navStyle);
-      if (tabBarPosition === 'left' || tabBarPosition === 'right') {
-        if (transformSupported) {
-          navOffset = {
-            value: `translate3d(0,${target}px,0)`,
-          };
-        } else {
-          navOffset = {
-            name: 'top',
-            value: `${target}px`,
-          };
-        }
-      } else if (transformSupported) {
-          navOffset = {
-            value: `translate3d(${target}px,0,0)`,
-          };
-        } else {
-          navOffset = {
-            name: 'left',
-            value: `${target}px`,
-          };
-        }
+      if (transformSupported) {
+        navOffset = {
+          value: `translate3d(0,${target}px,0)`,
+        };
+      } else {
+        navOffset = {
+          name: 'top',
+          value: `${target}px`,
+        };
+      }
       if (transformSupported) {
         setTransform(navStyle, navOffset.value);
       } else {
@@ -281,7 +269,7 @@ export default class ScrollableTabBarNode extends React.Component {
     const navClasses = classnames({
       [navClassName]: true,
       [
-        scrollAnimated ?
+        (scrollAnimated && window.atob) ?
           `${navClassName}-animated` :
           `${navClassName}-no-animated`
       ]: true,
