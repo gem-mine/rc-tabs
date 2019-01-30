@@ -1,6 +1,6 @@
 {
   "name": "@sdp.nd/rc-tabs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "tabs ui component for react",
   "keywords": [
     "react",
@@ -41,7 +41,6 @@
     "gh-pages": "rc-tools run gh-pages",
     "start": "rc-tools run server",
     "pub": "rc-tools run pub --babel-runtime",
-    "prepublish": "rc-tools run guard",
     "lint": "rc-tools run lint",
     "watch": "rc-tools run watch",
     "karma": "rc-test run karma",
