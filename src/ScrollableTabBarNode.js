@@ -124,7 +124,7 @@ export default class ScrollableTabBarNode extends React.Component {
     const target = Math.min(0, offset);
     if (this.offset !== target) {
       this.offset = target;
-      let navOffset = {};
+      let navOffset;
       const tabBarPosition = this.props.tabBarPosition;
       const navStyle = this.props.getRef('nav').style;
       const transformSupported = isTransform3dSupported(navStyle);
