@@ -325,6 +325,7 @@ export default class ScrollableTabBarNode extends React.Component {
 }
 
 ScrollableTabBarNode.propTypes = {
+  activeKey: PropTypes.string,
   getRef: PropTypes.func.isRequired,
   saveRef: PropTypes.func.isRequired,
   tabBarPosition: PropTypes.oneOf(['left', 'right', 'top', 'bottom']),
@@ -336,7 +337,6 @@ ScrollableTabBarNode.propTypes = {
   children: PropTypes.node,
   prevIcon: PropTypes.node,
   nextIcon: PropTypes.node,
-  activeKey: PropTypes.string,
 };
 
 ScrollableTabBarNode.defaultProps = {
