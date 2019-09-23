@@ -1,10 +1,10 @@
 /* eslint react/no-multi-comp:0, no-console:0, react/prop-types:0 */
-import 'rc-tabs/assets/index.less';
+import '@gem-mine/rc-tabs/assets/index.less';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Tabs, { TabPane } from 'rc-tabs';
-import TabContent from 'rc-tabs/lib/SwipeableTabContent';
-import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
+import Tabs, { TabPane } from '@gem-mine/rc-tabs';
+import TabContent from '@gem-mine/rc-tabs/lib/SwipeableTabContent';
+import ScrollableInkTabBar from '@gem-mine/rc-tabs/lib/ScrollableInkTabBar';
 
 const PanelContent = ({ id }) => (
   <div>{[1, 2, 3, 4].map(item => <p key={item}>{id}</p>)}</div>

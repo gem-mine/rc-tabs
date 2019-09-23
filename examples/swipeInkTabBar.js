@@ -1,10 +1,10 @@
 /* eslint react/no-multi-comp:0, no-console:0, react/no-unescaped-entities: 0, global-require: 0, react/no-unescaped-entities: 0 */
-import 'rc-tabs/assets/index.less';
+import '@gem-mine/rc-tabs/assets/index.less';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Tabs, { TabPane } from 'rc-tabs';
-import TabContent from 'rc-tabs/lib/SwipeableTabContent';
-import SwipeableInkTabBar from 'rc-tabs/lib/SwipeableInkTabBar';
+import Tabs, { TabPane } from '@gem-mine/rc-tabs';
+import TabContent from '@gem-mine/rc-tabs/lib/SwipeableTabContent';
+import SwipeableInkTabBar from '@gem-mine/rc-tabs/lib/SwipeableInkTabBar';
 
 if (process.env.DEMO_ENV === 'preact') {
   require('preact/devtools');

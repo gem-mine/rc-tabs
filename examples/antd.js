@@ -1,13 +1,13 @@
 /* eslint react/no-multi-comp:0, no-console:0, react/prop-types:0 */
-import 'rc-tabs/assets/index.less';
+import '@gem-mine/rc-tabs/assets/index.less';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Tabs, { TabPane } from 'rc-tabs';
-import TabContent from 'rc-tabs/lib/TabContent';
-import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
-import ScrollableTabBar from 'rc-tabs/lib/ScrollableTabBar';
-import InkTabBar from 'rc-tabs/lib/InkTabBar';
-import TabBar from 'rc-tabs/lib/TabBar';
+import Tabs, { TabPane } from '@gem-mine/rc-tabs';
+import TabContent from '@gem-mine/rc-tabs/lib/TabContent';
+import ScrollableInkTabBar from '@gem-mine/rc-tabs/lib/ScrollableInkTabBar';
+import ScrollableTabBar from '@gem-mine/rc-tabs/lib/ScrollableTabBar';
+import InkTabBar from '@gem-mine/rc-tabs/lib/InkTabBar';
+import TabBar from '@gem-mine/rc-tabs/lib/TabBar';
 
 const arrowPath = 'M869 487.8L491.2 159.9c-2.9-2.5-6.6-3.9-10.5-3.9h' +
   '-88.5c-7.4 0-10.8 9.2-5.2 14l350.2 304H152c-4.4 0-8 3.6-8 8v' +

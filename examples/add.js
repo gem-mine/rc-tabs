@@ -1,10 +1,10 @@
 /* eslint react/no-multi-comp:0, no-console:0, no-alert:0, no-undef: 0 */
-import 'rc-tabs/assets/index.less';
+import '@gem-mine/rc-tabs/assets/index.less';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Tabs, { TabPane } from 'rc-tabs';
-import TabContent from 'rc-tabs/lib/TabContent';
-import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
+import Tabs, { TabPane } from '@gem-mine/rc-tabs';
+import TabContent from '@gem-mine/rc-tabs/lib/TabContent';
+import ScrollableInkTabBar from '@gem-mine/rc-tabs/lib/ScrollableInkTabBar';
 
 let index = 1;
 

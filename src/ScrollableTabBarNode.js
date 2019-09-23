@@ -165,7 +165,7 @@ export default class ScrollableTabBarNode extends React.Component {
       if (transformSupported) {
         setTransform(navStyle, navOffset.value);
       } else {
-        for (i = 0; i < navOffset.length; i++) {
+        for (let i = 0; i < navOffset.length; i++) {
           navStyle[navOffset[i].name] = navOffset[i].value;
         }
       }

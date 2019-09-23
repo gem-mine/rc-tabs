@@ -1,12 +1,12 @@
 /* eslint react/no-multi-comp:0, no-console:0, react/prop-types:0 */
-import 'rc-tabs/assets/index.less';
+import '@gem-mine/rc-tabs/assets/index.less';
 import React from 'react';
 import HTML5Backend from 'react-dnd-html5-backend'
 import ReactDOM from 'react-dom';
-import Tabs, { TabPane } from 'rc-tabs';
+import Tabs, { TabPane } from '@gem-mine/rc-tabs';
 import update from 'immutability-helper';
-import TabContent from 'rc-tabs/lib/SwipeableTabContent';
-import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
+import TabContent from '@gem-mine/rc-tabs/lib/SwipeableTabContent';
+import ScrollableInkTabBar from '@gem-mine/rc-tabs/lib/ScrollableInkTabBar';
 import {
 	DragSource,
   DropTarget,
