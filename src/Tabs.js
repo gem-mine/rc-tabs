@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import raf from 'raf';
+import { polyfill } from 'react-lifecycles-compat';
 import KeyCode from './KeyCode';
 import TabPane from './TabPane';
 import { getDataAttr } from './utils';
@@ -25,7 +26,7 @@ function activeKeyIsValid(props, key) {
   return keys.indexOf(key) >= 0;
 }
 
-export default class Tabs extends React.Component {
+class Tabs extends React.Component {
   constructor(props) {
     super(props);
 
@@ -43,17 +44,17 @@ export default class Tabs extends React.Component {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    if ('activeKey' in nextProps) {
-      this.setState({
-        activeKey: nextProps.activeKey,
-      });
-    } else if (!activeKeyIsValid(nextProps, this.state.activeKey)) {
-      // https://github.com/ant-design/ant-design/issues/7093
-      this.setState({
-        activeKey: getDefaultActiveKey(nextProps),
-      });
+  static getDerivedStateFromProps(props, state) {
+    const newState = {};
+    if ('activeKey' in props) {
+      newState.activeKey = props.activeKey;
+    } else if (!activeKeyIsValid(props, state.activeKey)) {
+      newState.activeKey = getDefaultActiveKey(props);
     }
+    if (Object.keys(newState).length > 0) {
+      return newState;
+    }
+    return null;
   }
 
   componentWillUnmount() {
@@ -166,12 +167,14 @@ export default class Tabs extends React.Component {
       renderTabContent,
       renderTabBar,
       destroyInactiveTabPane,
+      direction,
       ...restProps
     } = props;
     const cls = classnames({
       [prefixCls]: 1,
       [`${prefixCls}-${tabBarPosition}`]: 1,
       [className]: !!className,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
     });
 
     this.tabBar = renderTabBar();
@@ -185,6 +188,7 @@ export default class Tabs extends React.Component {
       onTabClick: this.onTabClick,
       panels: props.children,
       activeKey: this.state.activeKey,
+      direction: this.props.direction,
     });
 
     const tabContent = React.cloneElement(renderTabContent(), {
@@ -195,6 +199,7 @@ export default class Tabs extends React.Component {
       children: props.children,
       onChange: this.setActiveKey,
       key: 'tabContent',
+      direction: this.props.direction,
     });
 
     const sentinelStart = (
@@ -254,6 +259,7 @@ Tabs.propTypes = {
   style: PropTypes.object,
   activeKey: PropTypes.string,
   defaultActiveKey: PropTypes.string,
+  direction: PropTypes.string,
 };
 
 Tabs.defaultProps = {
@@ -264,6 +270,12 @@ Tabs.defaultProps = {
   tabBarPosition: 'top',
   children: null,
   style: {},
+  direction: 'ltr',
 };
 
 Tabs.TabPane = TabPane;
+
+polyfill(Tabs);
+
+export default Tabs;
+
