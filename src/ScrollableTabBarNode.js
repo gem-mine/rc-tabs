@@ -122,7 +122,7 @@ export default class ScrollableTabBarNode extends React.Component {
   }
 
   setOffset(offset, checkNextPrev = true) {
-    const target = Math.min(0, offset);
+    let target = Math.min(0, offset);
     if (this.offset !== target) {
       this.offset = target;
       let navOffset;
@@ -147,6 +147,9 @@ export default class ScrollableTabBarNode extends React.Component {
           ]
         }
       } else if (transformSupported) {
+        if (this.props.direction === 'rtl') {
+          target = -target;
+        }
         navOffset = {
           value: `translate3d(${target}px,0,0)`,
         };
@@ -338,6 +341,7 @@ ScrollableTabBarNode.propTypes = {
   children: PropTypes.node,
   prevIcon: PropTypes.node,
   nextIcon: PropTypes.node,
+  direction: PropTypes.node,
 };
 
 ScrollableTabBarNode.defaultProps = {
